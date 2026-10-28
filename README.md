@@ -343,7 +343,13 @@ Test CSVs:
 
 ### Vietnamese ASR data preparation (VIVOS)
 
-The VIVOS corpus and manifests are expected at `dataset\vivos` and `dataset\manifests`. The preparation script can validate the extracted corpus and regenerate the manifests:
+Download the VIVOS files from the [AILAB-VNUHCM VIVOS dataset page](https://huggingface.co/datasets/AILAB-VNUHCM/vivos). You need the audio archive and both transcript prompt files:
+
+- [Audio archive (`vivos.tar.gz`, about 1.47 GB)](https://huggingface.co/datasets/AILAB-VNUHCM/vivos/resolve/main/data/vivos.tar.gz)
+- [Training transcripts (`prompts-train.txt.gz`)](https://huggingface.co/datasets/AILAB-VNUHCM/vivos/resolve/main/data/prompts-train.txt.gz)
+- [Test transcripts (`prompts-test.txt.gz`)](https://huggingface.co/datasets/AILAB-VNUHCM/vivos/resolve/main/data/prompts-test.txt.gz)
+
+Extract the archive and prompt files so the corpus has `train` and `test` directories under `dataset\vivos`, with each split containing `waves` and `prompts.txt`. The preparation script can validate the extracted corpus and regenerate the manifests:
 
 ```powershell
 python preprocessing\prepare_vivos.py
@@ -432,6 +438,7 @@ python train_asr.py --resume output\vivos_asr\last.pt --epochs 40 --batch-size 2
 - [VoxCeleb2](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html)
 - [AVSpeech](https://looking-to-listen.github.io/avspeech/)
 - [LibriSpeech](https://www.openslr.org/12)
+- [VIVOS (Vietnamese ASR)](https://huggingface.co/datasets/AILAB-VNUHCM/vivos)
 
 ### 2. Extract mouth ROIs
 
